@@ -1,0 +1,23 @@
+# Environments
+.env
+.venv
+# env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+
+.venv
+sandbox/
+vector_db/
+knowledge-base
+vectorStore_create.py
+vectorStore_create_pinecone.py
+
+community_contributions
+__pycache__
+.python-version
+day2.ipynb
+
+graph.png
