@@ -44,23 +44,20 @@ RUN playwright install --with-deps chromium
 # 7. Copy your source files
 COPY . .
 
-# 8. Grant open write permissions for Hugging Face's non-root environment
-RUN mkdir -p /code/sandbox /code/.ollama && chmod -R 777 /code
-
-RUN ollama serve > /tmp/ollama.log 2>&1 & sleep 5 && ollama pull gemma4:31b-cloud
+# 8. HF Spaces runs the container as a non-root UID. Only the directories
+# that actually need runtime writes get opened up - not the whole /code tree
+# (which includes your source files and have no reason to be writable).
+RUN mkdir -p /code/sandbox /code/.ollama && \
+    chmod -R 775 /code/sandbox /code/.ollama && \
+    chown -R 1000:1000 /code
 
 EXPOSE 7860
 
+# entrypoint.sh handles runtime startup: launching the daemon, waiting for it
+# to be ready, and only then starting the app. OLLAMA_API_KEY is picked up
+# automatically from the environment by the ollama CLI/daemon - no file
+# injection needed.
+COPY entrypoint.sh /code/entrypoint.sh
+RUN chmod +x /code/entrypoint.sh
 
-CMD sh -c "\
-    echo 'Checking for authenticated identity...'; \
-    if [ -n \"\$OLLAMA_PRIVATE_KEY\" ]; then \
-        echo \"\$OLLAMA_PRIVATE_KEY\" > /code/.ollama/id_ed25519; \
-        chmod 600 /code/.ollama/id_ed25519; \
-        echo 'Authenticated identity key injected successfully.'; \
-    fi; \
-    echo 'Starting Ollama daemon...'; \
-    ollama serve > /tmp/ollama.log 2>&1 & \
-    sleep 5; \
-    echo 'Launching AI Assistant...'; \
-    python AI_Assistant.py"
+CMD ["/code/entrypoint.sh"]
