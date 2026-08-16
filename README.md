@@ -91,31 +91,6 @@ Building this project required addressing a series of real-world distributed AI 
 
 ---
 
-## ⚡ Deployment & Local Run Adjustments
-
-This codebase is natively configured to run on a Hugging Face Space using production configuration parameters. However, it can be seamlessly switched to a local development setup.
-
-### Switching from Cloud to Local Execution
-Open `AI_Assistant.py` and modify the execution block at the bottom of the script:
-
-1. **Comment out** the HF SPACE execution logic:
-    ```python
-    # HF SPACE
-    # if __name__ == "__main__":
-    #     ...
-    #     ui.launch(server_name="0.0.0.0", server_port=7860, show_error=True)
-    ```
-
-2. **Uncomment** the LOCAL execution block right below it to allow automated browser targeting:
-    ```python
-    # LOCAL
-    if __name__ == "__main__":
-        ...
-        ui.launch(inbrowser=True)
-    ```
-
----
-
 ## 🚀 Quickstart & Setup
 
 This repository leverages `uv`, the ultra-fast Python package and project manager developed by Astral.
