@@ -76,33 +76,6 @@ if __name__ == "__main__":
 
 
 
-# LOCAL
-# if __name__ == "__main__":
-#     with gr.Blocks(title="AI Assistant", fill_width=True) as ui:
-#         gr.Markdown("# Vantage AI")
-#         gradio_state_object = gr.State(delete_callback=free_resources)
-        
-#         with gr.Row():
-#             chat_messages = gr.Chatbot(label="AI Assistant", elem_classes="chat-container")
-#         with gr.Row():
-#             user_message = gr.Textbox(show_label=False, placeholder="Your query or task to the assistant", interactive=False)
-#         with gr.Row():
-#             go_button = gr.Button("Go!", variant="primary", interactive=False)
-
-#         ui.load(setup,[],[gradio_state_object]).then(
-#             lambda: (gr.update(interactive=True), gr.update(interactive=True)), None, [user_message, go_button]
-#         )
-
-#         user_message.submit(process_message, [gradio_state_object, user_message, chat_messages], [chat_messages, gradio_state_object, user_message])
-#         go_button.click(process_message, [gradio_state_object, user_message, chat_messages], [chat_messages, gradio_state_object, user_message])
-
-#     ui.launch(inbrowser=True, css="""
-#             .chat-container, .chat-container > div {
-#             height: calc(100vh - 260px) !important;
-#             max-height: calc(100vh - 260px) !important;
-#         }
-#     """)
-
 
 
 # WITH STATE object column
