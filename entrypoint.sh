@@ -36,3 +36,4 @@ done
 
 echo "Launching AI Assistant..."
 exec python AI_Assistant.py
+echo "Application is running now..."
