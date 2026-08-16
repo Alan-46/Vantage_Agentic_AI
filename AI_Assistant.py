@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import gradio as gr
 from setup_AI_Assistant import GraphWorkflow
 import asyncio
+import os
 # import selectors
 # import sys
 
@@ -39,7 +40,7 @@ def free_resources(sidekick):
         print(f"Cleanup task failed: {e}")
     
 
-# HF SPACE
+# HF spaces or LOCAL
 if __name__ == "__main__":
     with gr.Blocks(title="AI Assistant", fill_width=True) as ui:
         gr.Markdown("# Vantage AI")
@@ -57,13 +58,21 @@ if __name__ == "__main__":
         )
         user_message.submit(process_message, [gradio_state_object, user_message, chat_messages], [chat_messages, gradio_state_object, user_message])
         go_button.click(process_message, [gradio_state_object, user_message, chat_messages], [chat_messages, gradio_state_object, user_message])
-    
-    ui.launch(server_name="0.0.0.0", server_port=7860, show_error=True, css="""
+
+    if os.getenv('RUNNING_ON_HF_SPACE'):
+        ui.launch(server_name="0.0.0.0", server_port=7860, show_error=True, css="""
+                .chat-container, .chat-container > div {
+                height: calc(100vh - 260px) !important;
+                max-height: calc(100vh - 260px) !important;
+            }
+        """)
+    else:
+        ui.launch(inbrowser=True, css="""
             .chat-container, .chat-container > div {
             height: calc(100vh - 260px) !important;
             max-height: calc(100vh - 260px) !important;
-        }
-    """)
+            }
+        """)
 
 
 
