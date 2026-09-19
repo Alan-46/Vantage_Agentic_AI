@@ -1,0 +1,218 @@
+[
+  {
+    "id": "q01",
+    "category": "single_hop",
+    "user_input": "What checkpointing backends does LangGraph support?",
+    "reference": "LangGraph supports MemorySaver (in-memory, for dev), SqliteSaver, and PostgresSaver, plus community checkpointers like MongoDB, for persisting graph state between runs.",
+    "reference_tool_calls": [
+        {"name": "search_tool_def", "args": {"query": "LangGraph checkpointer backends"}}
+    ]
+  },
+{
+    "id": "q02",
+    "category": "single_hop",
+    "user_input": "Who is the current Prime Minister of Australia?",
+    "reference": "The current Prime Minister of Australia is Anthony Albanese of the Australian Labor Party.",
+    "reference_tool_calls": [
+        {"name": "search_tool_def", "args": {"query": "Current Prime Minister of Australia"}}
+    ]
+  },
+  {
+    "id": "q03",
+    "category": "single_hop",
+    "user_input": "What is the current time in Vancouver?",
+    "reference": "The response should call get_current_time_for_timezone for America/Vancouver, then state the standard time relative to that current time — not a guessed or hardcoded time.",
+    "reference_tool_calls": [
+        {"name": "get_current_time_for_timezone", "args": {"timezone_name": "America/Vancouver"}}
+    ]
+  },
+  {
+    "id": "q04",
+    "category": "single_hop",
+    "user_input": "What time does the London Stock Exchange close today?",
+    "reference": "The response should call get_current_time_for_timezone for Europe/London, then state the standard time relative to that current time — not a guessed or hardcoded time.",
+    "reference_tool_calls": [
+        {"name": "get_current_time_for_timezone", "args": {"timezone_name": "Europe/London"}}
+    ]
+  },
+  {
+    "id": "q05",
+    "category": "single_hop",
+    "user_input": "How many of Continental Commercial's agents have we agreed to support?",
+    "reference": "We have an enterprise-grade agent portal supporting Continental's 3,500+ independent agents with hierarchical permissions, customizable commission structures, and real-time policy binding.",
+    "reference_tool_calls": [
+        {"name": "rag_tool_def", "args": {"query": "Number of Continental Commercial agents supported"}}
+    ]
+  },
+  {
+    "id": "q06",
+    "category": "single_hop",
+    "user_input": "What skills do Kevin Zhang posses?",
+    "reference": "Kevin Zhang is an expert in Swift, Kotlin, React Native, mobile UI/UX patterns, App Store optimization.",
+    "reference_tool_calls": [
+        {"name": "rag_tool_def", "args": {"query": "Skills of Kevin Zhang"}}
+    ]
+  },
+  {
+    "id": "q07",
+    "category": "single_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q08",
+    "category": "single_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q09",
+    "category": "multi_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q10",
+    "category": "multi_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q12",
+    "category": "multi_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q13",
+    "category": "multi_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q14",
+    "category": "multi_hop",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q15",
+    "category": "trap",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q16",
+    "category": "trap",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q17",
+    "category": "trap",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q18",
+    "category": "trap",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q19",
+    "category": "trap",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q20",
+    "category": "ambiguous",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+    {
+    "id": "q21",
+    "category": "ambiguous",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+    {
+    "id": "q22",
+    "category": "ambiguous",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+    {
+    "id": "q23",
+    "category": "ambiguous",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+  {
+    "id": "q24",
+    "category": "ntfy",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  },
+    {
+    "id": "q25",
+    "category": "ntfy",
+    "user_input": "",
+    "reference": "",
+    "reference_tool_calls": [
+        {"name": "", "args": {"": ""}}
+    ]
+  }
+]
