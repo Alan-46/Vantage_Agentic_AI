@@ -1,7 +1,6 @@
 ---
 title: Vantage AI
 emoji: 🤖
-sdk: docker
 app_file: AI_Assistant.py
 ---
 
