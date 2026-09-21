@@ -15,7 +15,7 @@ pinned: false
 [![VectorDB: Pinecone](https://img.shields.io/badge/VectorDB-Pinecone-1A1A1A.svg)](https://www.pinecone.io)
 [![uv](https://img.shields.io/badge/uv-DE5D83.svg)](https://github.com/astral-sh/uv)
 [![RAG](https://img.shields.io/badge/RAG-FF6F61.svg)](#)
-[![Serper](https://img.shields.io/badge/Serper-2563EB.svg)](https://serper.dev)
+[![Tavily](https://img.shields.io/badge/Tavily-2563EB.svg)](https://app.tavily.com/)
 
 # Vantage AI: Advanced Stateful Critic-Worker Agentic Assistant
 
