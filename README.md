@@ -66,7 +66,7 @@ Vantage AI has deep environment awareness and can alter its execution using a cu
 | **Playwright Automation** | Full headless web interaction | Dynamically spawns chromium instances using `PlayWrightBrowserToolkit` to browse, read, and interpret modern SPA web assets. |
 | **Enterprise RAG** | Proprietary corporate lookup | Implements a dense semantic search pipeline using HuggingFace's `nomic-ai/nomic-embed-text-v1.5` embeddings against a Pinecone Vector Index. |
 | **Deterministic Time Engine** | International Chronology Validation | Bypasses traditional LLM math/logic hallucinations for live schedules via the python `zoneinfo` package and IANA timezone configurations. |
-| **Web Search & Discovery** | Public internet retrieval | Proxies external live context queries through the `GoogleSerperAPIWrapper` and Wikipedia APIs. |
+| **Web Search & Discovery** | Public internet retrieval | Proxies external live context queries through `TavilyClient` and Wikipedia APIs. |
 | **Push Notifications** | Real-time event broadcasting | Pushes transactional system milestones asynchronously to the user's mobile device/desktop via webhooks to an `ntfy` server destination. |
 
 ---
@@ -111,7 +111,7 @@ Ensure you have `uv` installed, along with access to a MongoDB instance (such as
 
 3. Configure your local configuration file. Create a `.env` file in the root directory:
     ```env
-    SERPER_API_KEY="<serper_api_key_from_google_serper>"
+    TAVILY_API_KEY="<tavily_api_key_from_tavily>"
     NTFY_URL="[https://ntfy.sh/your_custom_topic](https://ntfy.sh/your_custom_topic)"
     MONGODB_URI="mongodb+srv://<username>:<password>@cluster.mongodb.net/vantage_db"
     PINECONE_API_KEY="<pinecone_api_key_after_setup>"
