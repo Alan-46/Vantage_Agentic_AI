@@ -1,21 +1,19 @@
 ---
 title: Vantage AI
 emoji: 🤖
-colorFrom: blue
-colorTo: indigo
 sdk: docker
-app_file: app.py
-pinned: false
+app_file: AI_Assistant.py
 ---
 
-[![Language: Python3](https://img.shields.io/badge/Language-Python3-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
-[![Framework: LangGraph](https://img.shields.io/badge/Framework-LangGraph-000000.svg)](https://langchain-ai.github.io/langgraph/)
-[![Observability: LangSmith](https://img.shields.io/badge/Observability-LangSmith-00C7B7.svg)](https://smith.langchain.com)
-[![Database: MongoDB%20Atlas](https://img.shields.io/badge/Database-MongoDB_Atlas-47A248.svg?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
-[![VectorDB: Pinecone](https://img.shields.io/badge/VectorDB-Pinecone-1A1A1A.svg)](https://www.pinecone.io)
-[![uv](https://img.shields.io/badge/uv-DE5D83.svg)](https://github.com/astral-sh/uv)
-[![RAG](https://img.shields.io/badge/RAG-FF6F61.svg)](#)
-[![Tavily](https://img.shields.io/badge/Tavily-2563EB.svg)](https://app.tavily.com/)
+[![Language: Python3](https://img.shields.io/badge/Language-Python3-3D9FFF.svg)](https://www.python.org)
+[![Framework: LangGraph](https://img.shields.io/badge/Framework-LangGraph-FF0000.svg)](https://langchain-ai.github.io/langgraph/)
+[![Observability: LangSmith](https://img.shields.io/badge/Observability-LangSmith-FF9900.svg)](https://smith.langchain.com)
+[![Database: MongoDB%20Atlas](https://img.shields.io/badge/Database-MongoDB_Atlas-FFFF00.svg)](https://www.mongodb.com/atlas)
+[![VectorDB: Pinecone](https://img.shields.io/badge/VectorDB-Pinecone-00D10A.svg)](https://www.pinecone.io)
+[![Package Manager: uv](https://img.shields.io/badge/Package_Manager-uv-00D9FF.svg)](https://github.com/astral-sh/uv)
+[![KB Search: RAG](https://img.shields.io/badge/KB_Search-RAG-001EFF.svg)](#)
+[![Browser Automation: PlayWright](https://img.shields.io/badge/Browser_Automation-PlayWright-AA00FF.svg)](#)
+[![Web Search: Tavily](https://img.shields.io/badge/Web_Search-Tavily-FF00FB.svg)](https://app.tavily.com/)
 
 # Vantage AI: Advanced Stateful Critic-Worker Agentic Assistant
 
