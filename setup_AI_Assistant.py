@@ -19,7 +19,7 @@ from pymongo import MongoClient  # <--- Added for MongoDB connectivity
 from langgraph.checkpoint.mongodb import MongoDBSaver  # <--- Added MongoDBSaver Checkpointer
 
 
-from setup_AI_Assistant_tools import playwright_tools, other_tools
+from setup_AI_Assistant_tools import playwright_tools, other_tools, browser_error_handler
 
 
 class graph_state(TypedDict):
@@ -228,7 +228,7 @@ class GraphWorkflow:
         graph_builder = StateGraph(graph_state)
         graph_builder.add_node("Worker Node", self.worker_node)
         graph_builder.add_node("Evaluator Node", self.evaluator_node)
-        graph_builder.add_node("Tool Node",ToolNode(self.tools))
+        graph_builder.add_node("Tool Node",ToolNode(self.tools, handle_tool_errors=browser_error_handler))
 
         graph_builder.add_edge(START, "Worker Node")
         graph_builder.add_conditional_edges("Worker Node", self.route_based_on_worker_output, {"tool":"Tool Node","evaluator":"Evaluator Node"})

@@ -38,7 +38,7 @@
   {
     "id": "q05",
     "category": "single_hop",
-    "user_input": "How many of Continental Commercial's agents have we agreed to support?",
+    "user_input": "How many of Continental Commercial's agents has InsureLLM agreed to support?",
     "reference": "We have an enterprise-grade agent portal supporting Continental's 3,500+ independent agents with hierarchical permissions, customizable commission structures, and real-time policy binding.",
     "reference_tool_calls": [
         {"name": "rag_tool_def", "args": {"query": "Number of Continental Commercial agents supported"}}
@@ -47,7 +47,7 @@
   {
     "id": "q06",
     "category": "single_hop",
-    "user_input": "What skills do Kevin Zhang posses?",
+    "user_input": "What skills do Kevin Zhang, who works at InsureLLM, posses?",
     "reference": "Kevin Zhang is an expert in Swift, Kotlin, React Native, mobile UI/UX patterns, App Store optimization.",
     "reference_tool_calls": [
         {"name": "rag_tool_def", "args": {"query": "Skills of Kevin Zhang"}}
@@ -56,32 +56,45 @@
   {
     "id": "q07",
     "category": "single_hop",
-    "user_input": "",
-    "reference": "",
+    "user_input": "What's the current listed price of the entry-level MacBook Air on Apple's website?",
+    "reference": "The response should call navigate_browser to Apple's MacBook Air page, extract the current listed starting price, and report it accurately — not a guessed or outdated price from training data.",
     "reference_tool_calls": [
-        {"name": "", "args": {"": ""}}
+        {"name": "navigate_browser", "args": {"url": "https://www.apple.com/macbook-air/"}},
+        {"name": "extract_text", "args": {}}
     ]
   },
   {
     "id": "q08",
     "category": "single_hop",
-    "user_input": "",
-    "reference": "",
+    "user_input": "What are the primary background colors used in the homerpage of earcouture.jp?",
+    "reference": "The response should call navigate_browser to Earcouture's page, extract the elements in the page and correctly identify the primary colors of the page — not a guessed or outdated data from training data.",
     "reference_tool_calls": [
-        {"name": "", "args": {"": ""}}
+        {"name": "navigate_browser", "args": {"url": "https://earcouture.jp"}},
+        {"name": "get_elements", "args": {}}
     ]
   },
   {
     "id": "q09",
     "category": "multi_hop",
-    "user_input": "",
-    "reference": "",
+    "user_input": "When is the next F1 GP race scheduled in local time? What time will it be in India then?",
+    "reference": "The response should require the usage of the search_tool_def to find the local time of the next race and use get_current_time_for_timezone for converting that time to IST.",
     "reference_tool_calls": [
-        {"name": "", "args": {"": ""}}
+        {"name": "search_tool_def", "args": {"query": "Next Forumla 1 race schedule"}},
+        {"name": "get_current_time_for_timezone", "args": {"timezone_name": "Asia/Kolkata"}}
     ]
   },
   {
     "id": "q10",
+    "category": "multi_hop",
+    "user_input": "Name the main competitors in the market for InusreLLM, BizLLM and the other companies under InsureLLM",
+    "reference": "The response should call rag_tool_def to acquire all the necessary information about InsureLLM and the companies under it. It should also use search_tool_def to acquiring information about all their competitors from the internet.",
+    "reference_tool_calls": [
+        {"name": "rag_tool_def", "args": {"query": "Companies under InsureLLM and the services provided by them"}},
+        {"name": "search_tool_def", "args": {"query": "Competitors of AI powered insurance softwares and platforms"}}
+    ]
+  },
+  {
+    "id": "q11",
     "category": "multi_hop",
     "user_input": "",
     "reference": "",
@@ -92,10 +105,11 @@
   {
     "id": "q12",
     "category": "multi_hop",
-    "user_input": "",
-    "reference": "",
+    "user_input": "Who are the main competitors in the market for InsureLLM? How do they compare with InsureLLM in the services they provide?",
+    "reference": "The response should require the usage of rag_tool_def for retrieving information on InsureLLM and the use o search_tool_def for retrieving and comparing information on InsureLLM's competitors.",
     "reference_tool_calls": [
-        {"name": "", "args": {"": ""}}
+        {"name": "rag_tool_def", "args": {"query": "Who are the main competitors of InsureLLM and how do their services compare?"}},
+        {"name": "search_tool_def", "args": {"query": "Top AI powered Insurance platforms today"}}
     ]
   },
   {

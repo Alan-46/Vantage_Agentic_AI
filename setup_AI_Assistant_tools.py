@@ -1,5 +1,6 @@
 from playwright.async_api import async_playwright
 from langchain_community.agent_toolkits import PlayWrightBrowserToolkit
+from playwright.async_api import Error as PlaywrightError
 from dotenv import load_dotenv
 import os
 import requests
@@ -7,7 +8,8 @@ from langchain.tools import tool
 # from langchain_community.agent_toolkits import FileManagementToolkit
 from langchain_community.tools.wikipedia.tool import WikipediaQueryRun
 # from langchain_experimental.tools import PythonREPLTool
-from langchain_community.utilities import GoogleSerperAPIWrapper
+# from langchain_community.utilities import GoogleSerperAPIWrapper
+from tavily import TavilyClient
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
 
 from langchain_pinecone import PineconeVectorStore
@@ -21,7 +23,8 @@ load_dotenv(override=True)
 
 
 ntfy_url = os.getenv("NTFY_URL")
-serper = GoogleSerperAPIWrapper()
+# serper = GoogleSerperAPIWrapper()
+tavily_client = TavilyClient()
 
 
 @tool
@@ -63,9 +66,9 @@ def push_tool_def(text: str):
 
 @tool
 def search_tool_def(query: str):
-    """ Used to search the internet. """
+    """ Used to search the internet using Tavily. """
 
-    result = serper.run(query)
+    result = tavily_client.search(query)
     return result
 
 @tool
@@ -92,6 +95,10 @@ async def playwright_tools():
     browser = await playwright.chromium.launch(headless=is_prod)
     toolkit = PlayWrightBrowserToolkit.from_browser(async_browser=browser)
     return toolkit.get_tools(), browser, playwright
+
+def browser_error_handler(e: PlaywrightError) -> str:
+    return (f"BROWSER_ERROR: {str(e).splitlines()[0]}. "
+            "This site may be slow or blocking automation. Try a different source or tell the user.")
 
 
 async def other_tools():
